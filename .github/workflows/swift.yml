@@ -1,0 +1,20 @@
+name: Run Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: macos-latest  // iOS 플랫폼에서 실행한다는 뜻
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Xcode
+        run: |
+          xcodebuild clean test -project walletCoreTest.xcodeproj \
+          -scheme walletCoreTest \
+          -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+          # Xcode로 특정 환경에서 clean 및 test를 진행하겠다는 뜻
+          # ❗-destination '...,OS=14.1'를 쓰면 OS 버전이 안맞는 문제 발생 가능
