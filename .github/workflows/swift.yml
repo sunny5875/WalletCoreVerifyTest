@@ -20,9 +20,8 @@ jobs:
     - uses: actions/checkout@v3  // repository에 체크아웃해서 job이 접근 가능하게 한다는 뜻 (Github Actions에서 미리 정의한 명령)
     - name: Build Xcode  // 실행할 작업 이름
       run: |  // 여러가지 명령어를 사용할 때 "|" 입력
-        xcodebuild clean test -project WhatWeEat.xcodeproj \
-        -scheme WhatWeEat \
+        xcodebuild clean test -project walletCoreTest/walletCoreTest.xcodeproj \
+        -scheme walletCoreTest \
         -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
         // Xcode로 특정 환경에서 clean 및 test를 진행하겠다는 뜻
-        // ❗-project WhatWeEat/WhatWeEat.xcodeproj를 쓰면 경로를 못찾는 문제 발생 가능
         // ❗-destination '...,OS=14.1'를 쓰면 OS 버전이 안맞는 문제 발생 가능
