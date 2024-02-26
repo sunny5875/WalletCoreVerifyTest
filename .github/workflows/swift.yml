@@ -1,13 +1,12 @@
-
 // Workflow 이름
 name: Run Test
 
 // ✅ 트리거 조건 (push 하거나 PR 하면 하단의 jobs를 실행하겠다는 뜻)
 on:
   push:
-    branches: [ main ]  // develop branch로 push한 상황
+    branches: [ main ] 
   pull_request:
-    branches: [ main ]  // develop branch로 PR 생성한 상황
+    branches: [ main ] 
 
 // ✅ 트리거 발생 시 실행할 작업들 
 jobs:
